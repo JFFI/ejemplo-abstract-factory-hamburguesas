@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 use App\Interfaces\FabricaAbstracta;
 use App\FabricaHamburguesaClasica;
 use App\FabricaHamburguesaPollo;
+use App\FabricaHamburguesaCerdo;
 
 use App\ProductoPan\Pan;
 use App\ProductoCarne\Carne;
@@ -13,6 +14,7 @@ use App\ProductoAderezo\Aderezo;
 
 const CLASICA = 1;
 const POLLO = 2;
+const CERDO = 3;
 const SALIR = 0;
 
 $salir = false;
@@ -26,6 +28,9 @@ while(!$salir) {
             break;
         case POLLO:
             crearHamburguesa(new FabricaHamburguesaPollo());
+            break;
+        case CERDO:
+            crearHamburguesa(new FabricaHamburguesaCerdo());
             break;
         case SALIR:
             $salir = true;
@@ -47,6 +52,7 @@ function indicarAcciones()
     echo "Ingrese uno de los siguientes números:" . PHP_EOL;
     echo " -> ".CLASICA.": Hamburguesa clásica". PHP_EOL;
     echo " -> ".POLLO.": Hamburguesa de pollo". PHP_EOL;
+    echo " -> ".CERDO.": Hamburguesa de cerdo". PHP_EOL;
     echo " -> ".SALIR.": Salir". PHP_EOL;
     echo PHP_EOL;
 }
